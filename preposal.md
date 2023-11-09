@@ -2,12 +2,12 @@
 
 ## What idea(s) do you have for your final project?
 
-TODO Make a casino with multiple games and art
+TODO Make a casino with multiple games and art or just one game
 
 ## If you plan to collaborate with one or two classmates, what are their names?
 
-TODO Manver Singh and/or Enlun Yin
+TODO 
 
 ## Do you have any questions of your own?
 
-TODO Is it possible to submit a project I have been making for a short amount fo time for fun?
+TODO 
