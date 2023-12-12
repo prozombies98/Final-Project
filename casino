@@ -42,7 +42,7 @@ public class casino
 		
 		bal = 100;
 		
-		System.out.println ("      Welcome to the Casino!");
+		System.out.println ("This project is created by Vansh Patel (TUID: 916317288) of the class of 2027\n\n      Welcome to the Casino!");
 		
 		do
 		{
