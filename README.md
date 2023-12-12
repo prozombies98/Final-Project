@@ -6,4 +6,6 @@ I really enjoyed making each game and the ascii art associated with it. It was l
 
 I also learned to adapt to my limitations as a programmer. I am a novice, and some of the rules of each game could not be coded in as I just did not know how to do it (like mentioned with blackjack). I learned to just make executive decisions that would not take away from the game even though the games could not be played like they are in real life.
 
+SavitchIn and casino files both provided if you want to try them out yourself in either eclipse or JCreator
+
 https://youtu.be/lynWch3kAU4?si=B6mSWeYr7hOeRTkX
