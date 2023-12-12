@@ -2,7 +2,1077 @@ public class casino
 {
 	public static void main (String[] args) {
 		
+		int bal = 0;
+		int bet = 0;
+		int ball = 0;
+		char selection = ' ';
+		int num = 0;
+		char evenOdd = ' ';
+		char firstSecond = ' ';
+		char twelves = ' ';
+		char columns = ' ';
+		char yesNo = ' ';
+		char player = ' ';
+		int compNum = 0;
+		char comp = ' ';
+		int pWin = 0;
+		int cWin = 0;
+		int num1 = 0;
+		int num2 = 0;
+		int num3 = 0;
+		char game = ' ';
+		int pNum = 0;
+		int cNum = 0;
+		int war = 0;
+		int pScore = 0;
+		int cScore = 0;
+		String pCard = "";
+		String cCard = "";
+		int pNumB = 0;
+		int dNum = 0;
+		int pTotal = 0;
+		int dTotal = 0;
+		String pCardB = "";
+		String dCard = "";
+		int pCounter = 0;
+		int dCounter = 0;
+		char hitStand = ' ';
+		int stop = 0;
+		char quitPlay = ' ';
 		
+		bal = 100;
+		
+		System.out.println ("      Welcome to the Casino!");
+		
+		do
+		{
+			System.out.print ("\n\n\n\nSelect the game you would like to play: \n\n   A: Rock, Paper, Scissors\n   B: Slots\n   C: War\n   D: Roulette\n   E: Blackjack\n\nSelection: ");
+			game = SavitchIn.readLineNonwhiteChar();
+			
+			while (game != 'A' && game != 'B' && game != 'C' && game != 'D' && game != 'E')
+			{
+				System.out.print ("\n\n\n\nInvalid Entry. Enter A, B, C, D, or E: ");
+				game = SavitchIn.readLineNonwhiteChar();
+			}
+			
+			if (game == 'A')
+			{
+				System.out.println ("\n\n\n\n      Welcome to Rock, Paper, Scissors!\nTo win the competition you must win 5 rounds");
+				
+				
+			    
+			    
+			    do
+			    {
+			    	cWin = 0;
+			    	pWin = 0;
+			    	
+			    	System.out.print ("\n\n\n\nYour balance is $" + bal + "\n\n\n\n\nHow much would you like to bet?    $");
+				    bet = SavitchIn.readLineInt();
+				
+				    while (bet > bal || bet < 0)
+				    {
+					    System.out.print ("\n\n\n\nInvalid Entry\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+				    }
+				
+				
+					do 
+					{
+					    System.out.print ("\n\n\n\nPick Rock (r), Paper (p) or Scissors (s): ");
+					    player = SavitchIn.readLineNonwhiteChar();
+					
+					    while (player != 'r' && player != 's' && player != 'p')
+					    {
+						    System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nPick Rock (r), Paper (p) or Scissors (s): ");
+						    player = SavitchIn.readLineNonwhiteChar();
+					    }
+					
+					    compNum = (int)(Math.random() * 3 + 1);
+					
+					    if (compNum == 1)
+					    {
+						    comp = 'r';
+					    }
+				   	    else if (compNum == 2)
+					    {
+				    		comp = 'p';
+					    }
+					    else 
+					    {
+				    		comp = 's';
+					    }
+					
+					    if (player == 'r' && comp == 'p')
+					    {
+				    		System.out.println ("\n\n\n\nYou picked: Rock\n\nThe computer picked: Paper\n\nComputer Wins!");
+						
+		    				cWin++;
+				    	}
+				    	else if (player == 'r' && comp == 's')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Rock\n\nThe computer picked: Scissors\n\nYou Win!");
+						
+				    		pWin++;
+				    	}
+			    		else if (player == 'r' && comp == 'r')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Rock\n\nThe computer picked: Rock\n\nTie!");
+				    	}
+				    	else if (player == 'p' && comp == 'r')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Paper\n\nThe computer picked: Paper\n\nYou Win!");
+				    		
+				    		pWin++;
+				    	}
+				    	else if (player == 'p' && comp == 's')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Paper\n\nThe computer picked: Scissors\n\nComputer Wins!");
+				    		
+				    		cWin++;
+				    	}
+				    	else if (player == 's' && comp == 'r')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Scissors\n\nThe computer picked: Rock\n\nComputer Wins!");
+				    		
+				    		cWin++;
+				    	}
+				    	else if (player == 's' && comp == 'p')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Scissors\n\nThe computer picked: Paper\n\nYou Win!");
+				    		
+				    		pWin++;
+				    	}
+				    	else if (player == 'p' && comp == 'p')
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Paper\n\nThe computer picked: Paper\n\nTie!");
+				    	}
+				    	else
+				    	{
+				    		System.out.println ("\n\n\n\nYou picked: Scissors\n\nThe computer picked: Scissors\n\nTie!");
+				    	}
+				    	
+				        	System.out.println ("\n\n\nScore:\nPlayer: " + pWin + "\nComputer: " + cWin);
+					
+					} while (pWin != 5 && cWin != 5);
+					
+					if (pWin > cWin)
+					{
+						bal = bal + bet;
+						System.out.println ("\n\n\n\nYou won the competition!\n\n\n\n\nYour new balance is $" + (bal));
+					}
+					else
+					{
+						bal = bal - bet;
+						System.out.println ("\n\n\n\nYou did not win the competition!\n\n\n\n\nYour new balance is $" + (bal));
+					}
+					
+					System.out.print ("\n\n\n\nWould you like to play this game again?  (Y/N): ");
+					yesNo = SavitchIn.readLineNonwhiteChar();
+			
+					while (yesNo != 'Y' && yesNo != 'N')
+					{
+						System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Y or N: ");
+						yesNo = SavitchIn.readLineNonwhiteChar();
+					}
+
+			    } while (yesNo == 'Y');
+			
+			}
+			else if (game == 'B')
+			{
+				System.out.println ("\n\n\n\n      Welcome to Slot Machine!");
+				
+				do
+				{
+										System.out.print ("\n\n\n\nYour balance is $" + bal + "\n\n\n\n\nHow much would you like to bet?    $");
+				    bet = SavitchIn.readLineInt();
+				    
+				    while (bet > bal || bet < 0)
+				    {
+					    System.out.print ("\n\n\n\nInvalid Entry\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+				    }
+				    
+				    num1 = (int)(Math.random() * 10 + 1);
+				    num2 = (int)(Math.random() * 10 + 1);
+				    num3 = (int)(Math.random() * 10 + 1);
+				    
+				    System.out.println ("\n\n\n\n           _____");
+				    System.out.println ("          /     \\");
+				    System.out.println ("         /       \\");
+				    System.out.println ("         \\       /");
+				    System.out.println ("_____     \\_____/");
+				    System.out.println ("     \\     /  /");
+				    System.out.println ("     |    /  /");
+				    System.out.println ("      \\  /  /");
+				    System.out.println ("      | /  /");
+				    System.out.println ("      |/  /");
+				    System.out.println ("      |  /");
+				    System.out.println ("      | /");
+				    System.out.println ("      |/");
+				    System.out.println ("      |");
+				    System.out.println ("      |");
+				    System.out.println ("      /");
+				    System.out.println ("     |");
+				    System.out.println ("_____/");
+				    
+				    System.out.println ("\n\n\n\n_____");
+				    System.out.println ("     \\");
+				    System.out.println ("     |");
+				    System.out.println ("      \\");
+				    System.out.println ("      |");
+				    System.out.println ("      |");
+				    System.out.println ("      |\\");
+				    System.out.println ("      | \\");
+				    System.out.println ("      |  \\");
+				    System.out.println ("      |\\  \\");
+				    System.out.println ("      | \\  \\");
+				    System.out.println ("      /  \\  \\");
+				    System.out.println ("     |    \\  \\");
+				    System.out.println ("_____/     \\  \\_");
+				    System.out.println ("          /     \\");
+				    System.out.println ("         /       \\");
+				    System.out.println ("         \\       /");
+				    System.out.println ("          \\_____/");
+				    
+				    System.out.println ("\n\n\n\nYour numbers are:    " + num1 + " | " + num2 + " | " + num3);
+				    
+				    if (num1 == num2 && num2 == num3 && num1 == 7)
+				    {
+				    	bet = bet * 1000;
+				    	bal = bal + bet;
+				    	System.out.println ("\n\n\n\nYou won $" + bet + "!");
+				    }
+				    else if (num1 == num2 && num2 == num3)
+				    {
+				    	bet = bet * 100;
+				    	bal = bal + bet;
+				    	System.out.println ("\n\n\n\nYou won $" + bet + "!");
+				    }
+				    else if (num1 == num2 && num2 != num3)
+				    {
+				    	bet = bet * 4;
+				    	bal = bal + bet;
+				    	System.out.println ("\n\n\n\nYou won $" + bet + "!");
+				    }
+				    else if (num1 == num3 && num3 != num2)
+				    {
+				    	bet = bet * 4;
+				    	bal = bal + bet;
+				    	System.out.println ("\n\n\n\nYou won $" + bet + "!");
+				    }
+				    else if (num2 == num3 && num1 != num3)
+				    {
+				    	bet = bet * 4;
+				    	bal = bal + bet;
+				    	System.out.println ("\n\n\n\nYou won $" + bet + "!");
+				    }
+				    else 
+				    {
+				    	bal = bal - bet;
+				    	System.out.println ("\n\n\n\nYou did not win!");
+			   		}
+			    
+				    System.out.println ("\n\n\n\nYour new balance is $" + (bal));
+				    
+				    System.out.print ("\n\n\n\nWould you like to play this game again?  (Y/N): ");
+					yesNo = SavitchIn.readLineNonwhiteChar();
+			
+					while (yesNo != 'Y' && yesNo != 'N')
+					{
+						System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Y or N: ");
+						yesNo = SavitchIn.readLineNonwhiteChar();
+					}
+
+				} while (yesNo == 'Y');
+				
+			}
+			else if (game == 'C')
+			{
+				System.out.println ("\n\n\n\n      Welcome to War!");
+				
+				do
+				{
+										System.out.print ("\n\n\n\nYour balance is $" + bal + "\n\n\n\n\nHow much would you like to bet?    $");
+				    bet = SavitchIn.readLineInt();
+				    
+				    while (bet > bal || bet < 0)
+				    {
+					    System.out.print ("\n\n\n\nInvalid Entry\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+				    }
+				    
+				    pScore = 26;
+				    cScore = 26;
+				    
+				    
+				    System.out.println ("\n\n\n\n# of player cards: " + pScore + "\n# of computer cards: " + cScore);
+				    
+				    while (pScore < 52 && cScore < 52)
+				    {
+				    	  pNum = (int)(Math.random() * 13 + 2);
+				          cNum = (int)(Math.random() * 13 + 2);
+				    
+				          if (pNum == 11)
+				          {
+				          	pCard = "J";
+				          }
+				          else if(pNum == 12)
+				          {
+				          	pCard = "Q";
+				          }
+				          else if (pNum == 13)
+				          {
+				          	pCard = "K";
+				          }
+				          else if (pNum == 14)
+				          {
+				          	pCard = "A";
+				          }
+				          else
+				          {
+				          	pCard = "";
+				          	pCard = pCard + pNum;
+				          }
+				          
+				          if (cNum == 11)
+				          {
+				          	cCard = "J";
+				          }
+				          else if(cNum == 12)
+				          {
+				          	cCard = "Q";
+				          }
+				          else if (cNum == 13)
+				          {
+				          	cCard = "K";
+				          }
+				          else if (cNum == 14)
+				          {
+				          	cCard = "A";
+				          }
+				          else
+				          {
+				          	cCard = "";
+				          	cCard = cCard + cNum;
+				          }
+				          
+				    	if (pNum > cNum)
+				    	{
+				    		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nYou win!");
+				    		pScore++;
+				    		cScore--;
+				    		System.out.println ("\n\n\n\n# of player cards: " + pScore + "\n# of computer cards: " + cScore);
+				    	}
+				    	else if (cNum > pNum)
+				    	{
+				    		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nComputer wins!");
+				    		pScore--;
+				    		cScore++;
+				    		System.out.println ("\n\n\n\n# of player cards: " + pScore + "\n# of computer cards: " + cScore);
+				    	}
+				    	else
+				    	{
+				    		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nTie... Time for a war!");
+				    		
+				    		System.out.println ("\n\n\n\n    ___                          ___       ___             ______         ___");
+				    		System.out.println ("    \\  \\                        /  /      /   \\           |   _  \\       |   |");
+				    		System.out.println ("     \\  \\        ______        /  /      /  _  \\          |  | \\  \\      |   |");
+				    		System.out.println ("      \\  \\      /  __  \\      /  /      /  / \\  \\         |  |_/  /      |   |");
+				    		System.out.println ("       \\  \\    /  /  \\  \\    /  /      /  /   \\  \\        |      /       |   |");
+				    		System.out.println ("        \\  \\  /  /    \\  \\  /  /      /  /_____\\  \\       |  |\\  \\       |   |");
+				    		System.out.println ("         \\  \\/  /      \\  \\/  /      /  _________  \\      |  | \\  \\      |___|");
+				    		System.out.println ("          \\    /        \\    /      /  /         \\  \\     |  |  \\  \\      ___");
+				    		System.out.println ("           \\__/          \\__/      /__/           \\__\\    |__|   \\__\\    |___| ");
+				    		
+				    		while (cNum == pNum)
+				    		{
+				    			war = 0;
+				    	    	war++;
+				    	    	
+				    	    	pNum = (int)(Math.random() * 13 + 2);
+				                cNum = (int)(Math.random() * 13 + 2);
+				    
+			    	            if (pNum == 11)
+			    	            {
+			    	            	pCard = "J";
+			        	        }
+			        	        else if(pNum == 12)
+			        	        {
+			        	          	pCard = "Q";
+			    	            }
+			    	            else if (pNum == 13)
+			    	            {
+			    	             	pCard = "K";
+			    	            }
+			      	            else if (pNum == 14)
+				                {
+			    	             	pCard = "A";
+		    		            }
+		    		            else
+		     		            {
+		     		            	pCard = "";
+		     		            	pCard = pCard + pNum;
+				                }
+			    	          
+		    		            if (cNum == 11)
+		    		            {
+			    	            	cCard = "J";
+			    	            }
+			    	            else if(cNum == 12)
+			    	            {
+			    	             	cCard = "Q";
+			    	            }
+			    	            else if (cNum == 13)
+			    	            {
+			    	            	cCard = "K";
+			    	            }
+			    	            else if (cNum == 14)
+			    	            {
+			    	            	cCard = "A";
+			    	            }
+			    	            else
+			    	            {
+			    	            	cCard = "";
+			    	            	cCard = cCard + cNum;
+				                }
+				                
+				               	if (pNum > cNum)
+				            	{
+				            		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nYou win!");
+				            		pScore = pScore + (war*4 + 1);
+				            		cScore = cScore - (war*4 + 1);
+				            		System.out.println ("\n\n\n\n# of player cards: " + pScore + "\n# of computer cards: " + cScore);
+				            	}
+				            	else if (pNum < cNum)
+				            	{
+				            		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nComputer wins!");
+				            		pScore = pScore - (war*4 + 1);
+				            		cScore = cScore + (war*4 + 1);
+				            		System.out.println ("\n\n\n\n# of player cards: " + pScore + "\n# of computer cards: " + cScore);
+				    	    	}
+				    	    	else
+				    	    	{
+				    	    		System.out.println ("\n\n\n\nPlayer's card: " + pCard + "\nComputer's card: " + cCard + "\nTie... Time for a war!");
+				    	    		
+				    	    		System.out.println ("\n\n\n\n    ___                          ___       ___             ______         ___");
+						    		System.out.println ("    \\  \\                        /  /      /   \\           |   _  \\       |   |");
+						    		System.out.println ("     \\  \\        ______        /  /      /  _  \\          |  | \\  \\      |   |");
+						    		System.out.println ("      \\  \\      /  __  \\      /  /      /  / \\  \\         |  |_/  /      |   |");
+						    		System.out.println ("       \\  \\    /  /  \\  \\    /  /      /  /   \\  \\        |      /       |   |");
+						    		System.out.println ("        \\  \\  /  /    \\  \\  /  /      /  /_____\\  \\       |  |\\  \\       |   |");
+						    		System.out.println ("         \\  \\/  /      \\  \\/  /      /  _________  \\      |  | \\  \\      |___|");
+						    		System.out.println ("          \\    /        \\    /      /  /         \\  \\     |  |  \\  \\      ___");
+						    		System.out.println ("           \\__/          \\__/      /__/           \\__\\    |__|   \\__\\    |___| ");
+				    	    	}
+				    		
+				    	
+				    		}
+				    	}
+				    }
+				    
+				    if (cScore > pScore)
+				    {
+				    	System.out.println ("\n\n\n\nThe computer wins the game!");
+				    	bal = bal - bet;
+				    }
+				    else
+				    {
+				    	System.out.println ("\n\n\n\nYou won the game!");
+				    	bal = bal + bet;
+				    }
+			    
+				    System.out.println ("\n\n\n\nYour new balance is $" + (bal));
+				    
+				    System.out.print ("\n\n\n\nWould you like to play this game again?  (Y/N): ");
+					yesNo = SavitchIn.readLineNonwhiteChar();
+			
+					while (yesNo != 'Y' && yesNo != 'N')
+					{
+						System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Y or N: ");
+						yesNo = SavitchIn.readLineNonwhiteChar();
+					}
+
+				} while (yesNo == 'Y');
+				
+			}
+			else if (game == 'D')
+			{
+				System.out.println ("\n\n\n\n      Welcome to Roulette!");
+				
+				do
+				{
+						System.out.print ("\n\n\n\nYour balance is $" + bal + "\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+					    
+					    while (bet > bal || bet < 0)
+					    {
+						    System.out.print ("\n\n\n\nInvalid Entry\n\n\n\n\nHow much would you like to bet?    $");
+						    bet = SavitchIn.readLineInt();
+					    }
+					    
+					    System.out.println ("\n\n\n\n ____________________");
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  1   |  2   |  3   |");
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  4   |  5   |  6   |");
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  7   |  8   |  9   |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  10  |  11  |  12  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  13  |  14  |  15  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  16  |  17  |  18  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  19  |  20  |  21  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  22  |  23  |  24  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  25  |  26  |  27  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  28  |  29  |  30  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  31  |  32  |  33  |");			    
+					    System.out.println ("|      |      |      |");
+					    System.out.println ("|  34  |  35  |  36  |");
+					    System.out.println ("|______|______|______|");			    
+					    
+					    System.out.print ("\n\n\n\nChoose the type of bet you'd like to make:\n\n   A: Individual number\n   B: Even/Odd\n   C: First 18 / Second 18\n   D: First 12 / Second 12 / Third 12\n   E: Columns\n\nSelection: ");
+					    selection = SavitchIn.readLineNonwhiteChar();
+					    
+					    while (selection != 'A' && selection != 'B' && selection != 'C' && selection != 'D' && selection != 'E')
+					    {
+					    	System.out.print ("\n\n\n\nInvalid Entry. Pick A, B, C, D, or E: ");
+					    	selection = SavitchIn.readLineNonwhiteChar();
+					    }
+					    
+					    ball = (int)(Math.random() * 36 + 1);
+					    
+					    if (selection == 'A')
+					    {
+					    	System.out.print ("\n\n\n\nWhat number would you like to bet on? ");
+					    	num = SavitchIn.readLineInt();
+					    	
+					    	while (num > 36 || num < 1)
+					    	{
+					    		System.out.print ("\n\n\n\nInvalid Entry. Enter a number between 1 and 36 inclusive: ");
+					    		num = SavitchIn.readLineInt();
+					    	}
+					    	
+					    	System.out.println ("\n\n\n\nThe ball landed on: " + ball);
+					    	
+					    	if (ball == num)
+					    	{
+					    		System.out.println ("\n\n\n\nYou won $" + (bet*36));
+					    		bal = bal + (bet * 36);
+					    	}
+					    	else
+					    	{
+					    		System.out.println ("\n\n\n\nYou lost $" + bet);
+					    		bal = bal - bet;
+					    	}
+					    }
+					    else if (selection == 'B')
+					    {
+					    	System.out.print ("\n\n\n\nWould you like to bet on Even (E), or Odd (O)? ");
+					    	evenOdd = SavitchIn.readLineNonwhiteChar();
+					    	
+					    	while (evenOdd != 'E' && evenOdd != 'O')
+					    	{
+					    		System.out.print ("\n\n\n\nInvalid Entry. Enter E or O: ");
+					    		evenOdd = SavitchIn.readLineNonwhiteChar();
+					    	}
+					    	
+					    	System.out.println ("\n\n\n\nThe ball landed on: " + ball);
+					    	
+					    	if ((ball % 2) == 0 && evenOdd == 'E')
+					    	{
+					    		System.out.println ("\n\n\n\nYou won $" + (bet * 2));
+					    		bal = bal + (bet * 2);
+					    	}
+					    	else if ((ball % 2 == 1) && evenOdd == 'O')
+					    	{
+					    		System.out.println ("\n\n\n\nYou won $" + (bet * 2));
+					    		bal = bal + (bet * 2);
+					    	}
+					    	else
+					    	{
+					    		System.out.println ("\n\n\n\nYou lost $" + bet);
+					    		bal = bal - bet;
+					    	}
+					    }
+					    else if (selection == 'C')
+					    {
+					    	System.out.print ("\n\n\n\nWould you like to bet on the First 18 (F), or the Second 18 (S)? ");
+					    	firstSecond = SavitchIn.readLineNonwhiteChar();
+					    	
+					    	while (firstSecond != 'F' && firstSecond != 'S')
+					    	{
+					    		System.out.print ("\n\n\n\nInvalid Entry. Enter F or S: ");
+					    		firstSecond = SavitchIn.readLineNonwhiteChar();
+					    	}
+					    	
+					    	System.out.println ("\n\n\n\nThe ball landed on: " + ball);
+					    	
+					    	if (ball <= 18 && firstSecond == 'F')
+					    	{
+					    		System.out.println ("\n\n\n\nYou won $" + (bet * 2));
+					    		bal = bal + (bet * 2);
+					    	}
+					    	else if (ball > 18 && firstSecond == 'S')
+					    	{
+					    		System.out.println ("\n\n\n\nYou won $" + (bet * 2));
+					    		bal = bal + (bet * 2);
+					    	}
+					    	else
+					    	{
+					    		System.out.println ("\n\n\n\nYou lost $" + bet);
+					    		bal = bal - bet;
+					    	}
+					    	
+					    	
+				    }
+				    else if (selection == 'D')
+				    {
+				    	System.out.print ("\n\n\n\nWould you like to bet on the First 12 (F), the Second 12 (S), or the Third 12 (T)? ");
+				    	twelves = SavitchIn.readLineNonwhiteChar();
+				    	
+				    	while (twelves != 'F' && twelves != 'S' && twelves != 'T')
+				    	{
+				    		System.out.print ("\n\n\n\nInvalid Entry. Enter F, S, or T: ");
+				    		twelves = SavitchIn.readLineNonwhiteChar();
+				    	}
+				    	
+				    	System.out.println ("\n\n\n\nThe ball landed on: " + ball);
+				    	
+				    	if (ball <= 12 && twelves == 'F')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else if (ball > 12 && ball <= 24 && twelves == 'S')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else if (ball > 24 && ball <= 36 && twelves == 'T')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else
+				    	{
+				    		System.out.println ("\n\n\n\nYou lost $" + bet);
+				    		bal = bal - bet;
+				    	}
+				    }
+				    else
+				    {
+				    	System.out.print ("\n\n\n\nWould you like to bet on the First column (F), the Second column (S), or the Third column (T)? ");
+				    	columns = SavitchIn.readLineNonwhiteChar();
+				    	
+				    	while (columns != 'F' && columns != 'S' && columns != 'T')
+				    	{
+				    		System.out.print ("\n\n\n\nInvalid Entry. Enter F, S, or T: ");
+				    		columns = SavitchIn.readLineNonwhiteChar();
+				    	}
+				    	
+				    	System.out.println ("\n\n\n\nThe ball landed on: " + ball);
+				    	
+				    	if ((ball % 3) == 1 && columns == 'F')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else if ((ball % 3) == 2 && columns == 'S')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else if ((ball % 3) == 0 && columns == 'T')
+				    	{
+				    		System.out.println ("\n\n\n\nYou won $" + (bet * 3));
+				    		bal = bal + (bet * 3);
+				    	}
+				    	else
+				    	{
+				    		System.out.println ("\n\n\n\nYou lost $" + bet);
+				    		bal = bal - bet;
+				    	}
+				    }
+				    
+				    System.out.println ("\n\n\n\nYour new balance is $" + (bal));
+				    
+				    System.out.print ("\n\n\n\nWould you like to play this game again?  (Y/N): ");
+					yesNo = SavitchIn.readLineNonwhiteChar();
+			
+					while (yesNo != 'Y' && yesNo != 'N')
+					{
+						System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Y or N: ");
+						yesNo = SavitchIn.readLineNonwhiteChar();
+					}
+
+				} while (yesNo == 'Y');
+			}
+			else 
+			{
+				System.out.println ("\n\n\n\n      Welcome to Blackjack!");
+			    
+			    do
+			    {
+			    										pTotal = 0;
+					dTotal = 0;
+					dCounter = 0;
+					pCounter = 0;
+					stop = 0;
+				    System.out.print ("\n\n\n\nYour balance is $" + bal + "\n\n\n\n\nHow much would you like to bet?    $");
+				    bet = SavitchIn.readLineInt();
+				    
+				    while (bet > bal || bet < 0)
+				    {
+					    System.out.print ("\n\n\n\nInvalid Entry\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+				    }
+				    
+				    while ((bet % 2) != 0)
+				    {
+				    	System.out.print ("\n\n\n\nYou must enter an even number\n\n\n\n\nHow much would you like to bet?    $");
+					    bet = SavitchIn.readLineInt();
+				    }
+				    
+				    do
+				    {
+				    				    
+					    pNumB = (int)(Math.random() * 13 + 2);
+					    dNum = (int)(Math.random() * 13 + 2);
+					    
+					    if (pNumB == 11)
+			  	        {
+			  	 	       	pCardB = "J";
+			  	 	       	pTotal = pTotal + 10;
+			   	        }
+			            else if(pNumB == 12)
+			            {
+			           		pCardB = "Q";
+			           		pTotal = pTotal + 10;
+			        	}
+			          	else if (pNumB == 13)
+			          	{
+			          		pCardB = "K";
+			          		pTotal = pTotal + 10;
+			          	}
+			          	else if (pNumB == 14)
+			          	{
+			          		pCardB = "A";
+			          		pTotal = pTotal + 11;
+			          	}
+			          	else
+			          	{
+			          		pCardB = "";
+			          		pCardB = pCardB + pNumB;
+			          		pTotal = pTotal + pNumB;
+			          	}
+			          	
+			          	if (dNum == 11)
+			            {
+			           		dCard = "J";
+			           		dTotal = dTotal + 10;
+			          	}
+			          	else if(dNum == 12)
+			          	{
+			          		dCard = "Q";
+			          		dTotal = dTotal + 10;
+			          	}
+			          	else if (dNum == 13)
+			          	{
+			          		dCard = "K";
+			          		dTotal = dTotal + 10;
+			          	}
+			          	else if (dNum == 14)
+			          	{
+			          		dCard = "A";
+			          		dTotal = dTotal + 11;
+			          	}
+			          	else
+			          	{
+			          		dCard = "";
+			          		dCard = dCard + dNum;
+			          		dTotal = dTotal + dNum;
+			          	}
+					    
+					    
+					    dCounter = 2;
+					    pCounter = 2;
+					    
+					    System.out.println ("\n\n\n\nDealer card 1: " + dCard);
+					    System.out.println ("\n                | Player card 1: " + pCardB + " |");
+					    
+					    pNumB = (int)(Math.random() * 13 + 2);
+					    dNum = (int)(Math.random() * 13 + 2);
+					    
+					    if (pNumB == 11)
+			  	        {
+			  	 	       	pCardB = "J";
+			  	 	       	pTotal = pTotal + 10;
+			   	        }
+			            else if(pNumB == 12)
+			            {
+			           		pCardB = "Q";
+			           		pTotal = pTotal + 10;
+			        	}
+			          	else if (pNumB == 13)
+			          	{
+			          		pCardB = "K";
+			          		pTotal = pTotal + 10;
+			          	}
+			          	else if (pNumB == 14)
+			          	{
+			          		pCardB = "A";
+			          		pTotal = pTotal + 11;
+			          	}
+			          	else
+			          	{
+			          		pCardB = "";
+			          		pCardB = pCardB + pNumB;
+			          		pTotal = pTotal + pNumB;
+			          	}
+			          	
+			          	if (dNum == 11)
+			            {
+			           		dCard = "J";
+			           		dTotal = dTotal + 10;
+			          	}
+			          	else if(dNum == 12)
+			          	{
+			          		dCard = "Q";
+			          		dTotal = dTotal + 10;
+			          	}
+			          	else if (dNum == 13)
+			          	{
+			          		dCard = "K";
+			          		dTotal = dTotal + 10;
+			          	}
+			          	else if (dNum == 14)
+			          	{
+			          		dCard = "A";
+			          		dTotal = dTotal + 11;
+			          	}
+			          	else
+			          	{
+			          		dCard = "";
+			          		dCard = dCard + dNum;
+			          		dTotal = dTotal + dNum;
+			          	}
+			          	
+			          	if (pTotal == 22)
+			          	{
+			          		pTotal = 12;
+			          	}
+			          	
+			          	if (dTotal == 22)
+			          	{
+			          		dTotal = 12;
+			          	}
+					    
+					    System.out.println ("\n                | Player card 2: " + pCardB + " |     | Total = " + pTotal + " |");
+					    
+					    if (pTotal >= 21)
+					    {
+					    	break;
+					    }
+					    
+					    System.out.print ("\n\nDo you want to Hit (H) or Stand (S)? ");
+					    hitStand = SavitchIn.readLineNonwhiteChar();
+					    
+					    while (hitStand != 'H' && hitStand != 'S')
+					    {
+					    	System.out.print ("\n\n\n\nSelect Hit (H) or Stand (S): ");
+					    	hitStand = SavitchIn.readLineNonwhiteChar();
+					    }
+					    
+					    if (hitStand == 'H')
+					    {
+					    	pCounter = 3;
+					    }
+					    
+					    while (hitStand == 'H')
+					    {
+					    	
+					    	pNumB = (int)(Math.random() * 13 + 2);
+					    	
+					    	if (pNumB == 11)
+				  	        {
+				  	 	       	pCardB = "J";
+				  	 	       	pTotal = pTotal + 10;
+				   	        }
+				            else if(pNumB == 12)
+				            {
+				           		pCardB = "Q";
+				           		pTotal = pTotal + 10;
+				        	}
+				          	else if (pNumB == 13)
+				          	{
+				          		pCardB = "K";
+				          		pTotal = pTotal + 10;
+				          	}
+				          	else if (pNumB == 14)
+				          	{
+				          		pCardB = "A";
+				          		pTotal = pTotal + 11;
+				          	}
+				          	else
+				          	{
+				          		pCardB = "";
+				          		pCardB = pCardB + pNumB;
+				          		pTotal = pTotal + pNumB;
+				          	}
+					    	
+					    	System.out.println ("\n\n\n\n                | Player card " + pCounter + ": " + pCardB + " |     | Total = " + pTotal + " |");
+					    	
+					    	if (pTotal > 21)
+					    	{
+					    		break;
+					    	}
+					    	
+					    	System.out.print ("\n\n\n\nDo you want to Hit (H) or Stand (S)? ");
+						    hitStand = SavitchIn.readLineNonwhiteChar();
+						    
+						    while (hitStand != 'H' && hitStand != 'S')
+						    {
+						    	System.out.print ("\n\n\n\nSelect Hit (H) or Stand (S): ");
+						    	hitStand = SavitchIn.readLineNonwhiteChar();
+						    }
+						    
+						    pCounter++;
+					    } 
+					    
+					    if (pTotal > 21)
+					    	{
+					    		break;
+					    	}
+					    
+					    System.out.println ("\n\n\n\nDealer card 2: " + dCard + "       | Total = " + dTotal + " |");
+					    
+					    if (dTotal >= 21)
+					    {
+					    	break;
+					    }
+					    else
+					    {
+					    	dCounter = 3;
+					    }
+					    
+					    
+					    while (dTotal < 17)
+					    {
+					    	dNum = (int)(Math.random() * 13 + 2);
+					    	
+					    	if (dNum == 11)
+				            {
+				           		dCard = "J";
+				           		dTotal = dTotal + 10;
+				          	}
+				          	else if(dNum == 12)
+				          	{
+				          		dCard = "Q";
+				          		dTotal = dTotal + 10;
+				          	}
+				          	else if (dNum == 13)
+				          	{
+				          		dCard = "K";
+				          		dTotal = dTotal + 10;
+				          	}
+				          	else if (dNum == 14)
+				          	{
+				          		dCard = "A";
+				          		dTotal = dTotal + 11;
+				          	}
+				          	else
+				          	{
+				          		dCard = "";
+				          		dCard = dCard + dNum;
+				          		dTotal = dTotal + dNum;
+				          	}
+				          	
+				          	System.out.println ("\n\n\n\nDealer card " + dCounter + ": " + dCard + "       | Total = " + dTotal + " |");
+				          	
+				          	if (dTotal >= 21)
+						    {
+						    	break;
+						    }
+				          	
+				          	dCounter++;
+					    } 
+					    
+					    stop = 1;
+		
+				    }while (stop != 1);
+				    
+				    if (dTotal > 21)
+				    {
+				    	System.out.println ("\n\n\n\nThe dealer bust!\n\nYou won $" + (bet));
+				    	bal = bal + bet;
+				    }
+				    else if (pTotal > 21)
+				    {
+				    	System.out.println ("\n\n\n\nYou bust!\n\nYou lost $" + bet);
+				    	bal = bal - bet;
+				    }
+				    else if (pTotal == 21 && pCounter == 2 && dTotal == 21 && dCounter == 2)
+				    {
+				    	System.out.println ("\n\n\n\nYou and the dealer got blackjack and tied!\n\nYou won nothing");
+				    }
+				    else if (pTotal == 21 && pCounter == 2)
+				    {
+				    	System.out.println ("\n\n\n\nYou got blackjack and the dealer didn't!\n\nYou won $" + (bet*1.5));
+				    	bal = (bal + ((bet*3)/2));
+				    }
+				    else if (dTotal == 21 && dCounter == 2)
+				    {
+				    	System.out.println ("\n\n\n\nThe dealer got blackjack and you didn't!\n\nYou lost $" + (bet));
+				    	bal = bal - bet;
+				    }
+				    else if (pTotal > dTotal)
+				    {
+				    	System.out.println ("\n\n\n\nYour total was higher than the dealer's total!\n\nYou won $" + (bet));
+				    	bal = bal + bet;
+				    }
+				    else if (pTotal < dTotal)
+				    {
+				    	System.out.println ("\n\n\n\nYour total was lower than the dealer's total!\n\nYou lost $" + (bet));
+				    	bal = bal - bet;
+				    }
+				    else
+				    {
+				    	System.out.println ("\n\n\n\nYou and the dealer had the same total and tied!\n\nYou won nothing");
+				    }
+				    
+				    System.out.println ("\n\n\n\nYour new balance is $" + (bal));
+				    
+				    System.out.print ("\n\n\n\nWould you like to play this game again?  (Y/N): ");
+					yesNo = SavitchIn.readLineNonwhiteChar();
+			
+					while (yesNo != 'Y' && yesNo != 'N')
+					{
+						System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Y or N: ");
+						yesNo = SavitchIn.readLineNonwhiteChar();
+					}
+
+			    } while (yesNo == 'Y');
+
+			}
+			
+			System.out.print ("\n\n\n\nWould you like to Quit the casino or Play again?  (Q/P): ");
+			quitPlay = SavitchIn.readLineNonwhiteChar();
+			
+			while (quitPlay != 'Q' && quitPlay != 'P')
+			{
+				System.out.print ("\n\n\n\nInvalid entry\n\n\n\n\nEnter Q or P: ");
+				quitPlay = SavitchIn.readLineNonwhiteChar();
+			}
+		} while (quitPlay == 'P');
 		
 		
 		
